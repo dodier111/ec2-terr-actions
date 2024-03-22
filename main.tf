@@ -3,16 +3,12 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "example_bucket" {
-  bucket = "s3buqq"
+  bucket = "s3buqqq"
 }
 
-resource "aws_s3_bucket_acl" "example_bucket_acl" {
-  bucket = aws_s3_bucket.example_bucket.id
-  acl    = "private"
-}
 
 resource "aws_security_group" "example" {
-  name        = "newsecureeeetyyy"
+  name        = "newsecureeeetyyyy"
   description = "Example security group for EC2 instance"
 
   ingress {
@@ -26,5 +22,5 @@ resource "aws_security_group" "example" {
 resource "aws_instance" "example" {
   ami           = "ami-0c101f26f147fa7fd"  
   instance_type = "t2.micro"
-  security_groups = ["newsecureeeetyyy"]
+  security_groups = ["newsecureeeetyyyy"]
 }
