@@ -3,15 +3,16 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "example_bucket" {
-  bucket = "s3buq"
-  aws_s3_bucket_acl  = "private"
-  region = "us-east-1"  
-
+  bucket = "s3buqq"
 }
 
+resource "aws_s3_bucket_acl" "example_bucket_acl" {
+  bucket = aws_s3_bucket.example_bucket.id
+  acl    = "private"
+}
 
 resource "aws_security_group" "example" {
-  name        = "newsecureeeetyy"
+  name        = "newsecureeeetyyy"
   description = "Example security group for EC2 instance"
 
   ingress {
@@ -20,12 +21,10 @@ resource "aws_security_group" "example" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
 }
 
 resource "aws_instance" "example" {
   ami           = "ami-0c101f26f147fa7fd"  
   instance_type = "t2.micro"
-  security_groups = ["newsecureeeetyy"] 
-
+  security_groups = ["newsecureeeetyyy"]
 }
